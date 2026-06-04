@@ -1,0 +1,30 @@
+{
+  "name": "Ubuntu Desktop with noVNC",
+  // Uses a base Ubuntu image (can be set to newer variants as they roll out)
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  
+  "features": {
+    // This feature automatically installs Fluxbox/Openbox, VNC, and noVNC
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "version": "latest",
+      "password": "vscode" 
+    }
+  },
+
+  // Forwards the noVNC web interface port so you can access it
+  "forwardPorts": [6080],
+
+  "portsAttributes": {
+    "6080": {
+      "label": "noVNC Desktop",
+      "onAutoForward": "notify"
+    }
+  },
+
+  // Optional: Open the noVNC browser tab automatically when the codespace starts
+  "ports": {
+    "6080": {
+      "visibility": "private"
+    }
+  }
+}
